@@ -4,6 +4,7 @@ from itertools import count
 def count_divisors(n: int):
     count = 1
     prime_n = 2
+    # count divisiors using powers of prime
     while prime_n**2 <= n:
         if n % prime_n == 0:
             power = 0
