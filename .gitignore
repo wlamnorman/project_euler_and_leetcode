@@ -1,3 +1,8 @@
 *
 !*/
 !*.*
+
+Cargo.lock
+Cargo.toml
+src/
+target/
