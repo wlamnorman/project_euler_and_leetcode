@@ -15,5 +15,4 @@ def generate_prime_factors(
             break
 
 
-ans = max(generate_prime_factors(600851475143))
-print(ans)
+print(max(generate_prime_factors(num)))

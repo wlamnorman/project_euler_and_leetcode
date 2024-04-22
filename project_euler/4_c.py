@@ -1,22 +1,21 @@
-from math import ceil
+def is_palindrome_product(n: int, m: int) -> bool:
+    product_str = str(n * m)
+    return product_str == product_str[::-1]
 
 
-def largest_palindrome_product_v1(n_digit_nums: int) -> int:
-    def is_palindrome_product(n: int, m: int) -> bool:
-        p = str(n * m)
-        if len(p) % 2 == 0 and p[: len(p) // 2] == p[len(p) // 2 :][::-1]:
-            return True
-        elif len(p) % 2 == 1 and p[: ceil(len(p) / 2)] == p[ceil(len(p) / 2) :][::-1]:
-            return True
-        return False
-
+def largest_palindrome_product(n_digit_nums: int) -> int:
     max_palindrome_product_seen = 0
-    for i in range(int("9" * n_digit_nums), int("9" * (n_digit_nums - 1)), -1):
-        for j in range(int("9" * n_digit_nums), i - 1, -1):
-            if is_palindrome_product(i, j) and i * j > max_palindrome_product_seen:
-                max_palindrome_product_seen = i * j
+    lower_bound = 10 ** (n_digit_nums - 1)
+    upper_bound = 10**n_digit_nums - 1
+
+    for i in range(upper_bound, lower_bound, -1):
+        for j in range(i, lower_bound - 1, -1):
+            if (product := i * j) <= max_palindrome_product_seen:
+                break  # break early as products are decreasing since we are looping with decreasing j
+            if is_palindrome_product(i, j):
+                max_palindrome_product_seen = product
+
     return max_palindrome_product_seen
 
 
-ans = largest_palindrome_product_v1(n_digit_nums=3)
-print(ans)
+print(largest_palindrome_product(n_digit_nums=3))

@@ -1,4 +1,5 @@
 def primes_up_to(n: int) -> list[int]:
+    # could use sieve for efficiency
     found_primes = []
     for candidate in range(2, n + 1):
         if not any(

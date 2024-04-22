@@ -1,4 +1,5 @@
 def nth_prime(n: int) -> int:
+    # inefficient but does the job, could use sieve to avoid re-considering values
     found_primes = []
     candidate = 2
     while True:
