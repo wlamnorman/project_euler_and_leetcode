@@ -1,10 +1,9 @@
-class Solution:
-    def lengthOfLastWord(self, s: str) -> int:
-        return len(
-            s.rstrip(" ").rsplit(
-                " ",
-            )[-1]
-        )
+def lengthOfLastWord(s: str) -> int:
+    return len(
+        s.rstrip(" ").rsplit(
+            " ",
+        )[-1]
+    )
 
 
 test_examples = [
@@ -12,12 +11,5 @@ test_examples = [
     ("   fly me   to   the moon  ", 4),
     ("luffy is still joyboy", 6),
 ]
-for example, expected in test_examples:
-    assert (
-        len(
-            example.rstrip(" ").rsplit(
-                " ",
-            )[-1]
-        )
-        == expected
-    )
+for input, expected_output in test_examples:
+    assert lengthOfLastWord(input) == expected_output

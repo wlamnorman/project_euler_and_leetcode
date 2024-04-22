@@ -24,5 +24,3 @@ test_examples = [
 for target, nums, expected in test_examples:
     actual = two_sum(target, nums)
     assert actual == expected, f"{target}, {nums}, {actual}, {expected}"
-
-print("All tests passed!")
